@@ -1,0 +1,19 @@
+
+<div class="day-square">
+
+  <ul>
+    <li *ngFor="let suite of day.largeSuites;let L=index;">
+      L{{L+1}} : {{ suite }} 
+      <button (click)="day.toggleBookedStatus('large', L)">Toggle</button> 
+    </li>
+  <!-- </ul>
+
+  <ul> -->
+    <li *ngFor="let suite of day.smallSuites;let S=index;">
+      S{{S+1}} : {{ suite }}
+      <button (click)="day.toggleBookedStatus('small', S)">Toggle</button>
+    </li>
+  </ul>
+
+</div>
+
