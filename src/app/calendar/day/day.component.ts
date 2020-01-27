@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DayStatus } from '../day-status.model';
+import { PetStay } from '../pet-stay.model'
 
 @Component({
   selector: 'app-day',
@@ -8,6 +9,7 @@ import { DayStatus } from '../day-status.model';
 })
 export class DayComponent implements OnInit {
   @Input() day:DayStatus;
+  // @Input() stay:AnimalStay;
 
 
   constructor() { 

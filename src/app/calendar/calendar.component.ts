@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DayStatus } from './day-status.model';
+import { PetStay } from './pet-stay.model';
 
 @Component({
   selector: 'app-calendar',

@@ -1,4 +1,7 @@
-<p>calendar works!</p>
 <div class="calendar-container">
+    <div class="calendar__cockpit-container">
+        <app-cockpit></app-cockpit>
+    </div>
+    
     <app-day *ngFor="let day of daysToRender;" [day]="day"></app-day>
 </div>
