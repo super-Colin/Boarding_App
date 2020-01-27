@@ -2,8 +2,10 @@
 export class DayStatus {
   public largeSuites:string[] = [];
   public smallSuites:string[] = [];
+  public dayNumber:number;
 
-  constructor(largeSuites: number = 3, largeSuitesBooked: number = 2, smallSuites: number = 14, smallSuitesBooked: number = 5) {
+  constructor(dayNumber:number, largeSuites: number = 3, largeSuitesBooked: number = 2, smallSuites: number = 14, smallSuitesBooked: number = 5) {
+    this.dayNumber = dayNumber;
     let i = 0;
     while (i < largeSuites) {
       if (i < largeSuitesBooked) {

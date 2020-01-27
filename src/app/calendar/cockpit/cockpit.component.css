@@ -1,0 +1,11 @@
+.input-group{
+    display:inline-block;
+    margin: 5px 10px;
+}
+.input-group div{
+    display: flex;
+    justify-content: space-between;
+}
+.input-group input{
+    margin-left: 10px;
+}

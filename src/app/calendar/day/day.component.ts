@@ -9,7 +9,7 @@ import { PetStay } from '../pet-stay.model'
 })
 export class DayComponent implements OnInit {
   @Input() day:DayStatus;
-  // @Input() stay:AnimalStay;
+  @Input() stay:PetStay;
 
 
   constructor() { 

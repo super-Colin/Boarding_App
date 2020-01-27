@@ -4,8 +4,8 @@ export class PetStay{
     // endDay:number;
     // ownerName:string;
     // ownerPhone:string;
-    // animalType: string;
-    // animalName: string;
+    // petType: string;
+    // petName: string;
     // suiteSize:string;
     // stayLength:number;
     // notes:string;
@@ -13,7 +13,7 @@ export class PetStay{
 
 
 
-    constructor(public startDay:string, public endDay:string, public ownerName:string, public ownerPhone:string, public animalType:string, public animalName:string, public suiteSize:string, public stayLength:number, public notes:string, public specialNotes:boolean){
+    constructor(public startDay: number=1, public endDay: number=3, public ownerName: string = 'test owner', public ownerPhone: string = 'test phone', public petType: string = 'test dog', public petName: string = 'test pet name', public suiteSize: string = 'test large', public stayLength: number = 2, public notes: string = 'test notes', public specialNotes:boolean=false){
 
     }
 
