@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { PetStay } from '../pet-stay.model';
 
 @Component({
@@ -7,15 +7,18 @@ import { PetStay } from '../pet-stay.model';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-  @Output() stay:PetStay;
+  @Output() newStay = new EventEmitter<PetStay>();
+  @ViewChild('ownerName', { static: false }) ownerName:ElementRef;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onAddStay(){
-    // this.stay
+  // onAddStay(inputTxt:ElementRef){
+  onAddStay(input:HTMLInputElement){
+    console.log('onAddStay Fired ,input text: ' + input.value);
+    this.newStay.emit(new PetStay(1,3));
   }
 
 }

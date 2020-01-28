@@ -16,7 +16,6 @@ export class DayComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('on Init' + this.day.largeSuites);
   }
 
 } 

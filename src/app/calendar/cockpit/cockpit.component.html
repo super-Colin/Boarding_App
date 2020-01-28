@@ -2,26 +2,26 @@
 <div class="input-group">
     <div>
         <label for="start-day">Start Day</label>
-        <input type="number" name="start-day" id="start-day">
+        <input #startDay type="number" name="start-day" id="start-day">
     </div>
 
     <div>
         <label for="end-day">End Day</label>
-        <input type="number" name="end-day" id="end-day">
+        <input #endDay type="number" name="end-day" id="end-day">
     </div>
 </div>
 
 <div class="input-group">
     <div>
         <label for="owner-name">Owner Name</label>
-        <input type="text" name="owner-name" id="owner-name">
+        <input #ownerName type="text" name="owner-name" id="owner-name">
     </div>
 
     <div>
         <label for="pet-name">Pet Name</label>
-        <input type="text" name="pet-name" id="pet-name">
+        <input #petName type="text" name="pet-name" id="pet-name">
     </div>
 </div>
 
-<button (click)="addStay()">Add Stay</button>
+<button (click)="onAddStay(ownerName)">Add Stay</button>
 
