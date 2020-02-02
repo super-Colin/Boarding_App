@@ -1,24 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { DayStatus } from './day-status.model';
 import { PetStay } from './pet-stay.model';
+import { PetStayService } from './pet-stay.service';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  providers: [PetStayService]
 })
 export class CalendarComponent implements OnInit {
-
-  // startDay:number;
-  // endDay:number;
-  // ownerName:string;
-  // ownerPhone:string;
-  // animalType: string;
-  // animalName: string;
-  // suiteSize:string;
-  // stayLength:number;
-  // notes:string;
-  // specialNotes:boolean;
 
   currentDaysStatus: DayStatus[] = [
     new DayStatus(1),
@@ -30,18 +21,6 @@ export class CalendarComponent implements OnInit {
     new DayStatus(7),
     new DayStatus(8)
   ]
-
-  currentStays: PetStay[] = [
-    new PetStay(1,3),
-    new PetStay(2,3),
-    new PetStay(4,6)
-  ]
-
-  newStays: PetStay[] = [
-    new PetStay(2, 5),
-    new PetStay(4, 5),
-    new PetStay(1, 6)
-  ]
   
   onAddedStay(input){
     console.log('onADDED!!!! Fired ,input : ' + input);
@@ -49,19 +28,13 @@ export class CalendarComponent implements OnInit {
 
 
 
-
-
 // -------------------------------------------------
 
   whereIsIn2dArray(arrayToCheck:any[], innerArrayPosition:number, valueToFind:any){
-    // console.log('index starting');
-    // let index:number = 0;
-    // console.log('index finished');
+
     for(let index of arrayToCheck){
-      // console.log('loop started');
       let valueToCheck = index[innerArrayPosition];
-      // console.log('value to find is : ' + valueToFind);
-      // console.log('value to check is : ' + valueToCheck);
+      
       if(valueToCheck == valueToFind){
         console.log('value found at : ' + index[0]);
         return index;
@@ -69,16 +42,6 @@ export class CalendarComponent implements OnInit {
     }
     return false
   }
-
-  // countBookedStrings(arrayToCheck: any[]){
-  //   let amountBooked:number = 0;
-  //   for(let i of arrayToCheck){
-  //     if(i == 'booked'){
-  //       amountBooked ++;
-  //     }
-  //   }
-  //   return amountBooked;
-  // }
 
   generateNewStays(staysToAdd:PetStay[]){
     let newDaysStatus =[];
@@ -109,8 +72,6 @@ export class CalendarComponent implements OnInit {
     let newDays = [];
     for(let eachStay of daysToAdjust){
       let dayNum = eachStay[0];
-      // let largeNum: number= this.countBookedStrings(eachStay);
-      // let smallNum: number = this.countBookedStrings(eachStay);
 
       let whereIsValue = this.whereIsIn2dArray(newDays, 0, dayNum);
 
