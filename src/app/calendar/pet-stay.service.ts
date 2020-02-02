@@ -14,6 +14,8 @@ export class PetStayService {
         new PetStay(4, 5)
     ]
 
+    constructor(private dayService: DayService) {}
+
 
     generateNewStays(staysToAdd: PetStay[]){
 
