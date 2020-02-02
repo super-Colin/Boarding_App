@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DayStatus } from './day-status.model';
+import { DayService } from './day.service';
 import { PetStay } from './pet-stay.model';
 import { PetStayService } from './pet-stay.service';
 
@@ -7,133 +8,36 @@ import { PetStayService } from './pet-stay.service';
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
-  providers: [PetStayService]
+  providers: [PetStayService, DayService]
 })
 export class CalendarComponent implements OnInit {
+  daysToRender = [];
 
-  currentDaysStatus: DayStatus[] = [
-    new DayStatus(1),
-    new DayStatus(2),
-    new DayStatus(3),
-    new DayStatus(4),
-    new DayStatus(5),
-    new DayStatus(6),
-    new DayStatus(7),
-    new DayStatus(8)
-  ]
+  constructor(private petStayService: PetStayService, private dayService: DayService) { }
+
+  ngOnInit() {
+    this.daysToRender = this.dayService.currentDaysStatus;
+  }
   
   onAddedStay(input){
     console.log('onADDED!!!! Fired ,input : ' + input);
   }
 
 
+  addStay(stay:PetStay){
+    this.petStayService.onAddStay(stay);
+  }
 
-// -------------------------------------------------
+  // whereIsIn2dArray(arrayToCheck:any[], innerArrayPosition:number, valueToFind:any){
 
-  whereIsIn2dArray(arrayToCheck:any[], innerArrayPosition:number, valueToFind:any){
-
-    for(let index of arrayToCheck){
-      let valueToCheck = index[innerArrayPosition];
+  //   for(let index of arrayToCheck){
+  //     let valueToCheck = index[innerArrayPosition];
       
-      if(valueToCheck == valueToFind){
-        console.log('value found at : ' + index[0]);
-        return index;
-      }
-    }
-    return false
-  }
-
-  generateNewStays(staysToAdd:PetStay[]){
-    let newDaysStatus =[];
-    this.currentDaysStatus;
-    this.currentStays;
-    let daysToAdjust = [];
-
-    // Loop through each new PetStay in the input array
-    for(let stay of staysToAdd){
-      console.log(stay);
-
-      // Loop through each day in the newly added stay in the for of loop
-      let i = stay.startDay;
-      while(i < stay.endDay){
-        // add the day number and suiteSize needed to an array
-        daysToAdjust.push([i,stay.suiteSize]);
-        i++;
-      }
-
-
-
-    }
-    console.log( 'days to adjust : ');
-    console.log(daysToAdjust);
-
-    
-    // Turn the daysToAdjust array into an arrays of DayStatus 's
-    let newDays = [];
-    for(let eachStay of daysToAdjust){
-      let dayNum = eachStay[0];
-
-      let whereIsValue = this.whereIsIn2dArray(newDays, 0, dayNum);
-
-      console.log('where is val: ' + whereIsValue);
-      // If we found the value
-      if (whereIsValue != false){
-        console.log('value' + dayNum + ' was at:' + whereIsValue);
-      }else{
-        if(eachStay[1] == 'large'){
-
-          // newDays.push([dayNum, largeNum+1, newDays[2]]);
-        } else if (eachStay[1] == 'small'){
-          newDays.push([dayNum, newDays[1], newDays[2] + 1]);
-        } else{
-          console.log('what happened');
-        }
-      }
-    }
-
-    console.log('news finally ==: ');
-    console.log(newDays);
-
-
-
-    newDaysStatus = [
-      new DayStatus(1,0,1),
-      new DayStatus(2,0,2),
-      new DayStatus(3,0,2),
-      new DayStatus(4,0,1),
-      new DayStatus(5,0,1),
-      new DayStatus(6),
-      new DayStatus(7),
-      new DayStatus(8)
-    ]
-
-    return newDaysStatus;
-  }
-
-
-// ---------------------------------------
-
-
-
-
-
-  // daysToRender = this.generateStays(this.hardCodedStays);
-  // daysToRender = this.generateStays(this.newStays);
-  daysToRender = [
-    new DayStatus(1,1,2),
-    new DayStatus(2,2,1),
-    new DayStatus(3,1,2),
-    new DayStatus(4,2,2),
-    new DayStatus(5,2,2),
-    new DayStatus(6,3,3),
-    new DayStatus(7,3,1),
-    new DayStatus(8,1,3)
-  ]
-  
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  //     if(valueToCheck == valueToFind){
+  //       console.log('value found at : ' + index[0]);
+  //       return index;
+  //     }
+  //   }
+  //   return false
+  // }
 }

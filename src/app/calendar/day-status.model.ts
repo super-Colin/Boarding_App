@@ -1,6 +1,6 @@
 
 export class DayStatus {
-  public dayNumber: number;
+  // public dayNumber: number;
 
   public largeSuites:string[] = [];
   public largeSuitesBooked:number = 0;
@@ -8,7 +8,14 @@ export class DayStatus {
   public smallSuites:string[] = [];
   public smallSuitesBooked:number = 0;
 
-  constructor(dayNumber: number, largeSuitesBooked: number = 0, smallSuitesBooked: number = 0, largeSuites: number = 3, smallSuites: number = 9) {
+  constructor(
+    public dayNumber: number, 
+    largeSuitesBooked: number = 0, 
+    smallSuitesBooked: number = 0, 
+    largeSuites: number = 3, 
+    smallSuites: number = 9
+    ) {
+
     this.dayNumber = dayNumber;
     let i = 0;
     while (i < largeSuites) {

@@ -1,9 +1,10 @@
 <div class="calendar-container">
-    <button (click)="generateNewStays(newStays)">Run generate days</button>
+    <button (click)="addStay()">Run generate days</button>
     <div class="calendar__cockpit-container">
         <app-cockpit
-        (newStay)="generateNewStays($event)"
+        
         >
+        <!-- (newStay)="generateNewStays($event)" -->
             
         </app-cockpit>
     </div>

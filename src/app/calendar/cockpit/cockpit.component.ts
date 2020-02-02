@@ -1,5 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+
 import { PetStay } from '../pet-stay.model';
+import {PetStayService} from '../pet-stay.service';
+import { DayStatus } from '../day-status.model';
+import { DayService } from '../day.service';
 
 @Component({
   selector: 'app-cockpit',
