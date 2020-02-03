@@ -7,8 +7,7 @@ import { PetStayService } from './pet-stay.service';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css'],
-  providers: [PetStayService, DayService]
+  styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
   daysToRender = [];
@@ -28,16 +27,4 @@ export class CalendarComponent implements OnInit {
     this.petStayService.onAddStay(stay);
   }
 
-  // whereIsIn2dArray(arrayToCheck:any[], innerArrayPosition:number, valueToFind:any){
-
-  //   for(let index of arrayToCheck){
-  //     let valueToCheck = index[innerArrayPosition];
-      
-  //     if(valueToCheck == valueToFind){
-  //       console.log('value found at : ' + index[0]);
-  //       return index;
-  //     }
-  //   }
-  //   return false
-  // }
 }

@@ -1,7 +1,9 @@
+import { Injectable } from '@angular/core';
 
 import {DayStatus} from './day-status.model';
 // import {PetStay} from './pet-stay.model'
 
+// @Injectable()
 export class DayService{
 
     currentDaysStatus: DayStatus[] = [

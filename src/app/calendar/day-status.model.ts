@@ -4,9 +4,12 @@ export class DayStatus {
 
   public largeSuites:string[] = [];
   public largeSuitesBooked:number = 0;
+  public largeSuitesFull:boolean = false;
 
   public smallSuites:string[] = [];
   public smallSuitesBooked:number = 0;
+  public smallSuitesFull:boolean  =false
+
 
   constructor(
     public dayNumber: number, 
@@ -38,7 +41,23 @@ export class DayStatus {
       }
       i++;
     }
+    this.updateSuitesFullStatus();
+    
+  }
 
+  isSuiteFull(booked: number, max: number) {
+    if (booked < max) {
+      // console.log(booked + ' < ' + max);
+      return false;
+    } else {
+      // console.log(booked + ' > ' + max);
+      return true;
+    }
+  }
+  updateSuitesFullStatus() {
+    this.largeSuitesFull = this.isSuiteFull(this.largeSuitesBooked, this.largeSuites.length)
+
+    this.smallSuitesFull = this.isSuiteFull(this.smallSuitesBooked, this.smallSuites.length)
   }
 
 
